@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviour
     SpriteRenderer background;
     GameObject movingObjectsContainer;
     public List<GameSequence> sequences;
+
+    public AudioClip bgmWater;
+    public AudioClip bgmAir;
+
+    AudioSource waterSource;
+    AudioSource airSource;
+
     enum STATECAMERA
     {
         UP,
@@ -20,7 +27,7 @@ public class GameManager : MonoBehaviour
     float desiredCameraY;
     STATECAMERA curCameraState = STATECAMERA.DOWN;
 
-    public float scrollingSpeed;
+    public float elementsScrollingSpeed;
     public float transitionTimer = 0.5f;
     float transitionCamera;
     void Start()
@@ -39,8 +46,19 @@ public class GameManager : MonoBehaviour
         }
 
         movingObjectsContainer = new GameObject("objectsContainer");
-        
-        foreach(GameSequence gs in sequences)
+
+        waterSource = gameObject.AddComponent<AudioSource>();
+        waterSource.clip = bgmWater;
+        waterSource.volume = 1.0f;
+        waterSource.Play();
+
+        airSource = gameObject.AddComponent<AudioSource>();
+        airSource.clip = bgmAir;
+        airSource.volume = 0.0f;
+        airSource.Play();
+
+
+        foreach (GameSequence gs in sequences)
         {
             foreach(ObjectSpawner o in gs.Spawners)
             {
@@ -104,7 +122,18 @@ public class GameManager : MonoBehaviour
                     transitionCamera -= Time.deltaTime;
                     float ratioTimer = 1.0f - transitionCamera / transitionTimer;
 
-                    camera.transform.position = Vector2.Lerp(new Vector2(camera.transform.position.x, -desiredCameraY), new Vector2(camera.transform.position.x, desiredCameraY), quintInOut(ratioTimer)   );
+                    if(desiredCameraY < camera.transform.position.y)
+                    {
+                        airSource.volume = 1-ratioTimer;
+                        waterSource.volume = ratioTimer;
+                    }
+                    else
+                    {
+                        airSource.volume = ratioTimer;
+                        waterSource.volume = 1-ratioTimer;
+                    }
+                    
+                    camera.transform.position = Vector2.Lerp(new Vector2(camera.transform.position.x, -desiredCameraY), new Vector2(camera.transform.position.x, desiredCameraY), quintInOut(ratioTimer));
                 }
                 else
                 {
@@ -118,7 +147,6 @@ public class GameManager : MonoBehaviour
                     desiredCameraY = 3.8f;
                     curCameraState = STATECAMERA.SWITCHING;
                     transitionCamera = transitionTimer;
-
                 }
                 break;
             default:
@@ -131,13 +159,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector3 tar = new Vector3(0, 0, -10);
+        Vector3 tar = new Vector3(0, 0, -10);
 
         UpdateCamera();
 
         foreach(Transform t in movingObjectsContainer.transform)
         {
-            t.position += Vector3.left * scrollingSpeed;
+            t.position += Vector3.left * elementsScrollingSpeed;
         }
+
+        /*
+        tar.x = Mathf.Lerp(background.bounds.min.x, background.bounds.max.x, Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x));
+        tar.y = Mathf.Lerp(background.bounds.min.y, background.bounds.max.y, Mathf.InverseLerp(0, Screen.height, Input.mousePosition.y));
+        Camera.main.transform.position = tar;
+
+        if (Camera.main.pixelRect.xMin < Camera.main.WorldToScreenPoint(cameraBounds.min).x) tar.x = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.min) + new Vector3(Camera.main.pixelWidth / 2, 0)).x;
+        if (Camera.main.pixelRect.xMax > Camera.main.WorldToScreenPoint(cameraBounds.max).x) tar.x = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.max) - new Vector3(Camera.main.pixelWidth / 2, 0)).x;
+
+        if (Camera.main.pixelRect.yMin < Camera.main.WorldToScreenPoint(cameraBounds.min).y) tar.y = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.min) + new Vector3(0, Camera.main.pixelHeight / 2)).y;
+        if (Camera.main.pixelRect.yMax > Camera.main.WorldToScreenPoint(cameraBounds.max).y) tar.y = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.max) - new Vector3(0, Camera.main.pixelHeight / 2)).y;
+
+        Camera.main.transform.position = tar;*/
     }
 }

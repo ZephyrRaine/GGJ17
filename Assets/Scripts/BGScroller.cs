@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class BGScroller : MonoBehaviour {
-	public float scrollSpeed, tileSize;
+    public float scrollSpeed;
+    [HideInInspector]
+    public float tileSize = 38.5f;
 
 	private Vector3 startPosition;
 

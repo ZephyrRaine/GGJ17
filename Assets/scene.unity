@@ -533,7 +533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ca2b2fa8025d445b47830fbe7bab00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
 --- !u!212 &1384695593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -624,7 +623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2385a2f0d6c74d8edc7dd945a3358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2
+  scrollSpeed: 0
   tileSize: 38.5
 --- !u!212 &1606503389
 SpriteRenderer:
@@ -802,10 +801,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961679900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c4d57ed9b04e2d4fa741b9ed1aac0e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 86dafc2324ea4c345b51bb64f9e0031e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sequences: []
+  bgmWater: {fileID: 8300000, guid: 78e1ca3ca43109241a0dc1dbdaa332b4, type: 3}
+  bgmAir: {fileID: 8300000, guid: 88e7a6a443893bd4c9a2c8f26a5fac94, type: 3}
   elementsScrollingSpeed: 0
   transitionTimer: 0.5
 --- !u!1 &2049253676
@@ -836,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2385a2f0d6c74d8edc7dd945a3358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 2
+  scrollSpeed: 0
   tileSize: 38.5
 --- !u!212 &2049253678
 SpriteRenderer:

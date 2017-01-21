@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Deal with rotation first
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         rotation *= Time.fixedDeltaTime;
         transform.Rotate(0, 0, -rotation);
@@ -41,14 +40,16 @@ public class PlayerController : MonoBehaviour
 			flapNumb = 0;
 			rigidbody2D.gravityScale = 0f;
 			rigidbody2D.AddRelativeForce(Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
-		} else if(Input.GetButtonDown("Fire1") && flapNumb < flapCount) {
-			flapNumb++;
-			rigidbody2D.gravityScale = 1f;
-			Vector2 flap = Vector2.up * 250f;
-			rigidbody2D.AddForce(flap * Time.fixedDeltaTime, ForceMode2D.Impulse);
+		} else {
+			rigidbody2D.gravityScale = 0.5f;
+			if(flapCount < flapNumb || Input.GetButton("Fire3")) {
+				rigidbody2D.gravityScale = 4f;
+			} else if(Input.GetButtonDown("Fire1") && flapNumb < flapCount) {
+				flapNumb++;
+				Vector2 flap = Vector2.up * 250f;
+				rigidbody2D.AddForce(flap * Time.fixedDeltaTime, ForceMode2D.Impulse);
+			}
 		}
-
         Camera camera = Camera.main;
-
     }
 }

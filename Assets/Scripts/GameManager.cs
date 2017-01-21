@@ -159,26 +159,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 tar = new Vector3(0, 0, -10);
-
         UpdateCamera();
 
         foreach(Transform t in movingObjectsContainer.transform)
         {
             t.position += Vector3.left * elementsScrollingSpeed;
         }
-
-        /*
-        tar.x = Mathf.Lerp(background.bounds.min.x, background.bounds.max.x, Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x));
-        tar.y = Mathf.Lerp(background.bounds.min.y, background.bounds.max.y, Mathf.InverseLerp(0, Screen.height, Input.mousePosition.y));
-        Camera.main.transform.position = tar;
-
-        if (Camera.main.pixelRect.xMin < Camera.main.WorldToScreenPoint(cameraBounds.min).x) tar.x = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.min) + new Vector3(Camera.main.pixelWidth / 2, 0)).x;
-        if (Camera.main.pixelRect.xMax > Camera.main.WorldToScreenPoint(cameraBounds.max).x) tar.x = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.max) - new Vector3(Camera.main.pixelWidth / 2, 0)).x;
-
-        if (Camera.main.pixelRect.yMin < Camera.main.WorldToScreenPoint(cameraBounds.min).y) tar.y = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.min) + new Vector3(0, Camera.main.pixelHeight / 2)).y;
-        if (Camera.main.pixelRect.yMax > Camera.main.WorldToScreenPoint(cameraBounds.max).y) tar.y = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(cameraBounds.max) - new Vector3(0, Camera.main.pixelHeight / 2)).y;
-
-        Camera.main.transform.position = tar;*/
     }
 }

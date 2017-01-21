@@ -15,30 +15,18 @@ public static class Vector2Extension {
 	}
 }
 
-[System.Serializable]
-public class Boundary {
-	public float xMin, xMax, yMin, yMax;
-}
-
 public class PlayerController : MonoBehaviour
 {
 	private Rigidbody2D rigidbody2D;
-	private Vector2 translation;
-	private float flapCheck;
 	private int flapNumb;
 
-	public Boundary boundary;
-	public float flapLaps, flapCount;
+	public float flapCount;
 	public Vector2 speed = new Vector2(0f, 10.0F);
 	public float rotationSpeed = 200.0f;
-
-    [HideInInspector]
-    public bool colliding;
 
 	void Start()
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
-		flapCheck = 0f;
 		flapNumb = 0;
 	}
 
@@ -50,30 +38,17 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, 0, -rotation);
 
 		if(transform.position.y <= 0) {
-			flapCheck = 0f;
+			flapNumb = 0;
 			rigidbody2D.gravityScale = 0f;
-			translation = Input.GetAxis("Vertical") * speed;
-			rigidbody2D.AddRelativeForce(translation * Time.fixedDeltaTime, ForceMode2D.Impulse);
-		} else if(Input.GetButton("Fire1") && flapNumb < flapCount && flapCheck + flapLaps < Time.realtimeSinceStartup) {
-			flapCheck = Time.realtimeSinceStartup;
+			rigidbody2D.AddRelativeForce(Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+		} else if(Input.GetButtonDown("Fire1") && flapNumb < flapCount) {
+			flapNumb++;
 			rigidbody2D.gravityScale = 1f;
-			rigidbody2D.AddRelativeForce(translation * Time.fixedDeltaTime, ForceMode2D.Impulse);
-		} else if(flapNumb < flapCount && flapCheck + flapLaps < Time.realtimeSinceStartup) {
-			flapCheck = Time.realtimeSinceStartup;
-			rigidbody2D.gravityScale += 1f;
+			Vector2 flap = Vector2.up * 250f;
+			rigidbody2D.AddForce(flap * Time.fixedDeltaTime, ForceMode2D.Impulse);
 		}
 
         Camera camera = Camera.main;
 
     }
-
-    public void OnCollisionStay2D(Collision2D collision)
-    {
-        colliding = true;
-    }
-
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        colliding = false;
-    }    
 }

@@ -6,20 +6,24 @@ public class BoundToBackground : MonoBehaviour {
 	private BoxCollider2D boxCollider;
 	private Rigidbody2D rb;
 
+	[HideInInspector]
+	public bool onScreen;
+
 	void Start() {
 		player = GameObject.FindWithTag("Player");
 		rb = player.GetComponent<Rigidbody2D>();
+		onScreen = true;
+	}
+
+	void OnTriggerStay2D(Collider2D other) {
+		if(other.CompareTag("Player")) {
+			onScreen = true;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
 		if(other.CompareTag("Player")) {
-			rb.transform.position *= -2;
-			player.GetComponent<Rigidbody2D>().AddRelativeForce(rb.transform.position, ForceMode2D.Impulse);
-			/*boxCollider.offset = new Vector2(boxCollider.offset.x, -boxCollider.offset.y);
-			background.transform.position = new Vector3(
-				background.transform.position.x,
-				-Mathf.Sign(background.transform.position.y),
-				background.transform.position.z);*/
+			onScreen = false;
 		} else Destroy(other.gameObject);
 	}
 }

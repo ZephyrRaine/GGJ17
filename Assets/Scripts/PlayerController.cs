@@ -22,14 +22,15 @@ public class Boundary {
 
 public class PlayerController : MonoBehaviour
 {
-    public Vector2 speed = new Vector2(0f, 10.0F);
-    public float rotationSpeed = 200.0f;
 	private Rigidbody2D rigidbody2D;
 	private Vector2 translation;
 	private float flapCheck;
+	private int flapNumb;
 
 	public Boundary boundary;
-	public float flapLaps;
+	public float flapLaps, flapCount;
+	public Vector2 speed = new Vector2(0f, 10.0F);
+	public float rotationSpeed = 200.0f;
 
     [HideInInspector]
     public bool colliding;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
 		flapCheck = 0f;
+		flapNumb = 0;
 	}
 
     void FixedUpdate()
@@ -52,10 +54,13 @@ public class PlayerController : MonoBehaviour
 			rigidbody2D.gravityScale = 0f;
 			translation = Input.GetAxis("Vertical") * speed;
 			rigidbody2D.AddRelativeForce(translation * Time.fixedDeltaTime, ForceMode2D.Impulse);
-		} else if(Input.GetButton("Fire1") && flapCheck - flapLaps < Time.realtimeSinceStartup) {
+		} else if(Input.GetButton("Fire1") && flapNumb < flapCount && flapCheck + flapLaps < Time.realtimeSinceStartup) {
 			flapCheck = Time.realtimeSinceStartup;
 			rigidbody2D.gravityScale = 1f;
 			rigidbody2D.AddRelativeForce(translation * Time.fixedDeltaTime, ForceMode2D.Impulse);
+		} else if(flapNumb < flapCount && flapCheck + flapLaps < Time.realtimeSinceStartup) {
+			flapCheck = Time.realtimeSinceStartup;
+			rigidbody2D.gravityScale += 1f;
 		}
 
         Camera camera = Camera.main;

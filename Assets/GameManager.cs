@@ -124,9 +124,8 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
-
-
-        camera.transform.position = new Vector2(player.transform.position.x, camera.transform.position.y);
+		
+        //camera.transform.position = new Vector2(player.transform.position.x, camera.transform.position.y);
     }
 
     // Update is called once per frame

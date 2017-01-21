@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     float desiredCameraY;
     STATECAMERA curCameraState = STATECAMERA.DOWN;
 
-    public float scrollingSpeed;
+    public float elementsScrollingSpeed;
     public float transitionTimer = 0.5f;
     float transitionCamera;
     void Start()
@@ -137,10 +137,9 @@ public class GameManager : MonoBehaviour
 
         foreach(Transform t in movingObjectsContainer.transform)
         {
-            t.position += Vector3.left * scrollingSpeed;
+            t.position += Vector3.left * elementsScrollingSpeed;
         }
 
-        if(!player.colliding) player.transform.position += Vector3.right * scrollingSpeed;
         /*
         tar.x = Mathf.Lerp(background.bounds.min.x, background.bounds.max.x, Mathf.InverseLerp(0, Screen.width, Input.mousePosition.x));
         tar.y = Mathf.Lerp(background.bounds.min.y, background.bounds.max.y, Mathf.InverseLerp(0, Screen.height, Input.mousePosition.y));

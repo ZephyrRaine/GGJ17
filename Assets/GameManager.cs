@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviour
     SpriteRenderer background;
     GameObject movingObjectsContainer;
     public List<GameSequence> sequences;
+
+    public AudioClip bgmWater;
+    public AudioClip bgmAir;
+
+    AudioSource waterSource;
+    AudioSource airSource;
+
     enum STATECAMERA
     {
         UP,
@@ -39,8 +46,19 @@ public class GameManager : MonoBehaviour
         }
 
         movingObjectsContainer = new GameObject("objectsContainer");
-        
-        foreach(GameSequence gs in sequences)
+
+        waterSource = gameObject.AddComponent<AudioSource>();
+        waterSource.clip = bgmWater;
+        waterSource.volume = 1.0f;
+        waterSource.Play();
+
+        airSource = gameObject.AddComponent<AudioSource>();
+        airSource.clip = bgmAir;
+        airSource.volume = 0.0f;
+        airSource.Play();
+
+
+        foreach (GameSequence gs in sequences)
         {
             foreach(ObjectSpawner o in gs.Spawners)
             {
@@ -104,7 +122,18 @@ public class GameManager : MonoBehaviour
                     transitionCamera -= Time.deltaTime;
                     float ratioTimer = 1.0f - transitionCamera / transitionTimer;
 
-                    camera.transform.position = Vector2.Lerp(new Vector2(camera.transform.position.x, -desiredCameraY), new Vector2(camera.transform.position.x, desiredCameraY), quintInOut(ratioTimer)   );
+                    if(desiredCameraY < camera.transform.position.y)
+                    {
+                        airSource.volume = 1-ratioTimer;
+                        waterSource.volume = ratioTimer;
+                    }
+                    else
+                    {
+                        airSource.volume = ratioTimer;
+                        waterSource.volume = 1-ratioTimer;
+                    }
+                    
+                    camera.transform.position = Vector2.Lerp(new Vector2(camera.transform.position.x, -desiredCameraY), new Vector2(camera.transform.position.x, desiredCameraY), quintInOut(ratioTimer));
                 }
                 else
                 {
@@ -118,7 +147,6 @@ public class GameManager : MonoBehaviour
                     desiredCameraY = 3.8f;
                     curCameraState = STATECAMERA.SWITCHING;
                     transitionCamera = transitionTimer;
-
                 }
                 break;
             default:

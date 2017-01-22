@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     AudioSource waterSource;
     AudioSource airSource;
 
+    SoundManager sm;
+
     enum STATECAMERA
     {
         UP,
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour
         airSource.volume = 0.0f;
         airSource.Play();
 
+        sm = gameObject.GetComponent<SoundManager>();
+        
 
         foreach (GameSequence gs in sequences)
         {
@@ -114,6 +118,7 @@ public class GameManager : MonoBehaviour
                     desiredCameraY = -3.8f;
                     curCameraState = STATECAMERA.SWITCHING;
                     transitionCamera = transitionTimer;
+                    waterSource.PlayOneShot(sm.diveIn);
                 }
                 break;
             case STATECAMERA.SWITCHING:
@@ -146,6 +151,7 @@ public class GameManager : MonoBehaviour
                 {
                     desiredCameraY = 3.8f;
                     curCameraState = STATECAMERA.SWITCHING;
+                    waterSource.PlayOneShot(sm.jumpOut);
                     transitionCamera = transitionTimer;
                 }
                 break;

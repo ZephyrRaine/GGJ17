@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b6575c13371fd4cbcba0652f2092d1c8
+timeCreated: 1485070761
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - titleMusic: {fileID: 8300000, guid: 7db0c87ec4fdb0e48af04349c4f14df9, type: 3}
+  - mainMusic: {fileID: 8300000, guid: 78e1ca3ca43109241a0dc1dbdaa332b4, type: 3}
+  - volumeDown: {fileID: 24519918, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
+  - volumeUp: {fileID: 24500003, guid: 0ac7fb39e445048d89688f69c2a1839a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

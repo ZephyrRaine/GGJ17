@@ -325,9 +325,10 @@ GameObject:
   - component: {fileID: 977829141}
   - component: {fileID: 977829142}
   - component: {fileID: 977829145}
+  - component: {fileID: 977829146}
   m_Layer: 0
   m_Name: Barbarus
-  m_TagString: Untagged
+  m_TagString: Barbarus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,6 +410,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceAmount: 4
+--- !u!50 &977829146
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977829140}
+  m_BodyType: 0
+  m_Simulated: 0
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1086534613
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +895,19 @@ Prefab:
         type: 2}
       propertyPath: dashSpeed
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957689119740410, guid: d5b651683a0a9c449b0446591056ef2e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957689119740410, guid: d5b651683a0a9c449b0446591056ef2e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114177343311923468, guid: d5b651683a0a9c449b0446591056ef2e,
+        type: 2}
+      propertyPath: diveSpeed
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d5b651683a0a9c449b0446591056ef2e, type: 2}

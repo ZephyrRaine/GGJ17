@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public static class Vector2Extension {
@@ -37,6 +38,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+		if(transform.position.x <= GameObject.FindWithTag("Barbarus").GetComponent<Rigidbody2D>().transform.position.x + 0.2f) {
+			SceneManager.LoadScene(0);
+		}
+
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         rotation *= Time.fixedDeltaTime;
         transform.Rotate(0, 0, -rotation);

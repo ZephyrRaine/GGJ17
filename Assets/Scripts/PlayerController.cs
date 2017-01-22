@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
 				Vector2 flap = Vector2.up * 250f;
 				rigidbody2D.AddForce(flap * Time.fixedDeltaTime, ForceMode2D.Impulse);
 			} else if(xprev - transform.position.y > 0) {
+				rigidbody2D.AddForce(Vector2.down * diveSpeed * (xprev - transform.position.y) * Time.fixedDeltaTime, ForceMode2D.Impulse);
 			}
 			xprev = transform.position.y;
 		}

@@ -47,7 +47,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("help");
         }
 
-        movingObjectsContainer = new GameObject("objectsContainer");
+        movingObjectsContainer = GameObject.Find("objectContainer");
+        if(movingObjectsContainer == null)
+        {
+            movingObjectsContainer = new GameObject("objectContainer");
+        }
 
         waterSource = gameObject.AddComponent<AudioSource>();
         waterSource.clip = bgmWater;
@@ -137,8 +141,8 @@ public class GameManager : MonoBehaviour
                         airSource.volume = ratioTimer;
                         waterSource.volume = 1-ratioTimer;
                     }
-                    
-                    camera.transform.position = Vector2.Lerp(new Vector2(camera.transform.position.x, -desiredCameraY), new Vector2(camera.transform.position.x, desiredCameraY), quintInOut(ratioTimer));
+                    Vector2 v = Vector2.Lerp(new Vector2(camera.transform.position.x, -desiredCameraY), new Vector2(camera.transform.position.x, desiredCameraY), quintInOut(ratioTimer)); // Code du GD, ne pas pleurer svp
+                    camera.transform.position = new Vector3(v.x,v.y,-10); // Code du GD, ne pas pleurer svp
                 }
                 else
                 {

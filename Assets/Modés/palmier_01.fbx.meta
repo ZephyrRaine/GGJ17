@@ -1,0 +1,462 @@
+fileFormatVersion: 2
+guid: 8879f3a5bbcd15140af5d4e7e94e42e7
+timeCreated: 1485034336
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: group_feullageBas
+    100002: group_feullageDroit
+    100004: group_feullageGauche
+    100006: group_feullageHaut
+    100008: group_moduleTronc
+    100010: group_moduleTronc1
+    100012: group_moduleTronc2
+    100014: group_moduleTronc3
+    100016: group_moduleTronc4
+    100018: group_moduleTronc5
+    100020: group_moduleTronc6
+    100022: group_tronc
+    100024: //RootNode
+    100026: polySurface_palmierTronc
+    100028: polySurface_palmierTronc 1
+    100030: polySurface_palmierTronc 2
+    100032: polySurface_palmierTronc 3
+    100034: polySurface_palmierTronc 4
+    100036: polySurface_palmierTronc 5
+    100038: polySurface_palmierTronc 6
+    100040: polySurface_palmierTronc1
+    100042: polySurface_palmierTronc1 1
+    100044: polySurface_palmierTronc1 2
+    100046: polySurface_palmierTronc1 3
+    100048: polySurface_palmierTronc1 4
+    100050: polySurface_palmierTronc1 5
+    100052: polySurface_palmierTronc1 6
+    100054: polySurface_palmierTronc2
+    100056: polySurface_palmierTronc2 1
+    100058: polySurface_palmierTronc2 2
+    100060: polySurface_palmierTronc2 3
+    100062: polySurface_palmierTronc2 4
+    100064: polySurface_palmierTronc2 5
+    100066: polySurface_palmierTronc2 6
+    100068: polySurface_palmierTronc3
+    100070: polySurface_palmierTronc3 1
+    100072: polySurface_palmierTronc3 2
+    100074: polySurface_palmierTronc3 3
+    100076: polySurface_palmierTronc3 4
+    100078: polySurface_palmierTronc3 5
+    100080: polySurface_palmierTronc3 6
+    100082: pPlane1
+    100084: pPlane1 1
+    100086: pPlane1 2
+    100088: pPlane1 3
+    100090: pPlane10
+    100092: pPlane10 1
+    100094: pPlane10 2
+    100096: pPlane10 3
+    100098: pPlane11
+    100100: pPlane11 1
+    100102: pPlane11 2
+    100104: pPlane11 3
+    100106: pPlane2
+    100108: pPlane2 1
+    100110: pPlane2 2
+    100112: pPlane2 3
+    100114: pPlane3
+    100116: pPlane3 1
+    100118: pPlane3 2
+    100120: pPlane3 3
+    100122: pPlane4
+    100124: pPlane4 1
+    100126: pPlane4 2
+    100128: pPlane4 3
+    100130: pPlane5
+    100132: pPlane5 1
+    100134: pPlane5 2
+    100136: pPlane5 3
+    100138: pPlane6
+    100140: pPlane6 1
+    100142: pPlane6 2
+    100144: pPlane6 3
+    100146: pPlane7
+    100148: pPlane7 1
+    100150: pPlane7 2
+    100152: pPlane7 3
+    100154: pPlane8
+    100156: pPlane8 1
+    100158: pPlane8 2
+    100160: pPlane8 3
+    100162: pPlane9
+    100164: pPlane9 1
+    100166: pPlane9 2
+    100168: pPlane9 3
+    400000: group_feullageBas
+    400002: group_feullageDroit
+    400004: group_feullageGauche
+    400006: group_feullageHaut
+    400008: group_moduleTronc
+    400010: group_moduleTronc1
+    400012: group_moduleTronc2
+    400014: group_moduleTronc3
+    400016: group_moduleTronc4
+    400018: group_moduleTronc5
+    400020: group_moduleTronc6
+    400022: group_tronc
+    400024: //RootNode
+    400026: polySurface_palmierTronc
+    400028: polySurface_palmierTronc 1
+    400030: polySurface_palmierTronc 2
+    400032: polySurface_palmierTronc 3
+    400034: polySurface_palmierTronc 4
+    400036: polySurface_palmierTronc 5
+    400038: polySurface_palmierTronc 6
+    400040: polySurface_palmierTronc1
+    400042: polySurface_palmierTronc1 1
+    400044: polySurface_palmierTronc1 2
+    400046: polySurface_palmierTronc1 3
+    400048: polySurface_palmierTronc1 4
+    400050: polySurface_palmierTronc1 5
+    400052: polySurface_palmierTronc1 6
+    400054: polySurface_palmierTronc2
+    400056: polySurface_palmierTronc2 1
+    400058: polySurface_palmierTronc2 2
+    400060: polySurface_palmierTronc2 3
+    400062: polySurface_palmierTronc2 4
+    400064: polySurface_palmierTronc2 5
+    400066: polySurface_palmierTronc2 6
+    400068: polySurface_palmierTronc3
+    400070: polySurface_palmierTronc3 1
+    400072: polySurface_palmierTronc3 2
+    400074: polySurface_palmierTronc3 3
+    400076: polySurface_palmierTronc3 4
+    400078: polySurface_palmierTronc3 5
+    400080: polySurface_palmierTronc3 6
+    400082: pPlane1
+    400084: pPlane1 1
+    400086: pPlane1 2
+    400088: pPlane1 3
+    400090: pPlane10
+    400092: pPlane10 1
+    400094: pPlane10 2
+    400096: pPlane10 3
+    400098: pPlane11
+    400100: pPlane11 1
+    400102: pPlane11 2
+    400104: pPlane11 3
+    400106: pPlane2
+    400108: pPlane2 1
+    400110: pPlane2 2
+    400112: pPlane2 3
+    400114: pPlane3
+    400116: pPlane3 1
+    400118: pPlane3 2
+    400120: pPlane3 3
+    400122: pPlane4
+    400124: pPlane4 1
+    400126: pPlane4 2
+    400128: pPlane4 3
+    400130: pPlane5
+    400132: pPlane5 1
+    400134: pPlane5 2
+    400136: pPlane5 3
+    400138: pPlane6
+    400140: pPlane6 1
+    400142: pPlane6 2
+    400144: pPlane6 3
+    400146: pPlane7
+    400148: pPlane7 1
+    400150: pPlane7 2
+    400152: pPlane7 3
+    400154: pPlane8
+    400156: pPlane8 1
+    400158: pPlane8 2
+    400160: pPlane8 3
+    400162: pPlane9
+    400164: pPlane9 1
+    400166: pPlane9 2
+    400168: pPlane9 3
+    2300000: polySurface_palmierTronc
+    2300002: polySurface_palmierTronc 1
+    2300004: polySurface_palmierTronc 2
+    2300006: polySurface_palmierTronc 3
+    2300008: polySurface_palmierTronc 4
+    2300010: polySurface_palmierTronc 5
+    2300012: polySurface_palmierTronc 6
+    2300014: polySurface_palmierTronc1
+    2300016: polySurface_palmierTronc1 1
+    2300018: polySurface_palmierTronc1 2
+    2300020: polySurface_palmierTronc1 3
+    2300022: polySurface_palmierTronc1 4
+    2300024: polySurface_palmierTronc1 5
+    2300026: polySurface_palmierTronc1 6
+    2300028: polySurface_palmierTronc2
+    2300030: polySurface_palmierTronc2 1
+    2300032: polySurface_palmierTronc2 2
+    2300034: polySurface_palmierTronc2 3
+    2300036: polySurface_palmierTronc2 4
+    2300038: polySurface_palmierTronc2 5
+    2300040: polySurface_palmierTronc2 6
+    2300042: polySurface_palmierTronc3
+    2300044: polySurface_palmierTronc3 1
+    2300046: polySurface_palmierTronc3 2
+    2300048: polySurface_palmierTronc3 3
+    2300050: polySurface_palmierTronc3 4
+    2300052: polySurface_palmierTronc3 5
+    2300054: polySurface_palmierTronc3 6
+    2300056: pPlane1
+    2300058: pPlane1 1
+    2300060: pPlane1 2
+    2300062: pPlane1 3
+    2300064: pPlane10
+    2300066: pPlane10 1
+    2300068: pPlane10 2
+    2300070: pPlane10 3
+    2300072: pPlane11
+    2300074: pPlane11 1
+    2300076: pPlane11 2
+    2300078: pPlane11 3
+    2300080: pPlane2
+    2300082: pPlane2 1
+    2300084: pPlane2 2
+    2300086: pPlane2 3
+    2300088: pPlane3
+    2300090: pPlane3 1
+    2300092: pPlane3 2
+    2300094: pPlane3 3
+    2300096: pPlane4
+    2300098: pPlane4 1
+    2300100: pPlane4 2
+    2300102: pPlane4 3
+    2300104: pPlane5
+    2300106: pPlane5 1
+    2300108: pPlane5 2
+    2300110: pPlane5 3
+    2300112: pPlane6
+    2300114: pPlane6 1
+    2300116: pPlane6 2
+    2300118: pPlane6 3
+    2300120: pPlane7
+    2300122: pPlane7 1
+    2300124: pPlane7 2
+    2300126: pPlane7 3
+    2300128: pPlane8
+    2300130: pPlane8 1
+    2300132: pPlane8 2
+    2300134: pPlane8 3
+    2300136: pPlane9
+    2300138: pPlane9 1
+    2300140: pPlane9 2
+    2300142: pPlane9 3
+    3300000: polySurface_palmierTronc
+    3300002: polySurface_palmierTronc 1
+    3300004: polySurface_palmierTronc 2
+    3300006: polySurface_palmierTronc 3
+    3300008: polySurface_palmierTronc 4
+    3300010: polySurface_palmierTronc 5
+    3300012: polySurface_palmierTronc 6
+    3300014: polySurface_palmierTronc1
+    3300016: polySurface_palmierTronc1 1
+    3300018: polySurface_palmierTronc1 2
+    3300020: polySurface_palmierTronc1 3
+    3300022: polySurface_palmierTronc1 4
+    3300024: polySurface_palmierTronc1 5
+    3300026: polySurface_palmierTronc1 6
+    3300028: polySurface_palmierTronc2
+    3300030: polySurface_palmierTronc2 1
+    3300032: polySurface_palmierTronc2 2
+    3300034: polySurface_palmierTronc2 3
+    3300036: polySurface_palmierTronc2 4
+    3300038: polySurface_palmierTronc2 5
+    3300040: polySurface_palmierTronc2 6
+    3300042: polySurface_palmierTronc3
+    3300044: polySurface_palmierTronc3 1
+    3300046: polySurface_palmierTronc3 2
+    3300048: polySurface_palmierTronc3 3
+    3300050: polySurface_palmierTronc3 4
+    3300052: polySurface_palmierTronc3 5
+    3300054: polySurface_palmierTronc3 6
+    3300056: pPlane1
+    3300058: pPlane1 1
+    3300060: pPlane1 2
+    3300062: pPlane1 3
+    3300064: pPlane10
+    3300066: pPlane10 1
+    3300068: pPlane10 2
+    3300070: pPlane10 3
+    3300072: pPlane11
+    3300074: pPlane11 1
+    3300076: pPlane11 2
+    3300078: pPlane11 3
+    3300080: pPlane2
+    3300082: pPlane2 1
+    3300084: pPlane2 2
+    3300086: pPlane2 3
+    3300088: pPlane3
+    3300090: pPlane3 1
+    3300092: pPlane3 2
+    3300094: pPlane3 3
+    3300096: pPlane4
+    3300098: pPlane4 1
+    3300100: pPlane4 2
+    3300102: pPlane4 3
+    3300104: pPlane5
+    3300106: pPlane5 1
+    3300108: pPlane5 2
+    3300110: pPlane5 3
+    3300112: pPlane6
+    3300114: pPlane6 1
+    3300116: pPlane6 2
+    3300118: pPlane6 3
+    3300120: pPlane7
+    3300122: pPlane7 1
+    3300124: pPlane7 2
+    3300126: pPlane7 3
+    3300128: pPlane8
+    3300130: pPlane8 1
+    3300132: pPlane8 2
+    3300134: pPlane8 3
+    3300136: pPlane9
+    3300138: pPlane9 1
+    3300140: pPlane9 2
+    3300142: pPlane9 3
+    4300000: polySurface_palmierTronc
+    4300002: polySurface_palmierTronc1
+    4300004: polySurface_palmierTronc2
+    4300006: polySurface_palmierTronc3
+    4300008: polySurface_palmierTronc
+    4300010: polySurface_palmierTronc1
+    4300012: polySurface_palmierTronc2
+    4300014: polySurface_palmierTronc3
+    4300016: polySurface_palmierTronc
+    4300018: polySurface_palmierTronc1
+    4300020: polySurface_palmierTronc2
+    4300022: polySurface_palmierTronc3
+    4300024: polySurface_palmierTronc
+    4300026: polySurface_palmierTronc1
+    4300028: polySurface_palmierTronc2
+    4300030: polySurface_palmierTronc3
+    4300032: polySurface_palmierTronc
+    4300034: polySurface_palmierTronc1
+    4300036: polySurface_palmierTronc2
+    4300038: polySurface_palmierTronc3
+    4300040: polySurface_palmierTronc
+    4300042: polySurface_palmierTronc1
+    4300044: polySurface_palmierTronc2
+    4300046: polySurface_palmierTronc3
+    4300048: polySurface_palmierTronc
+    4300050: polySurface_palmierTronc1
+    4300052: polySurface_palmierTronc2
+    4300054: polySurface_palmierTronc3
+    4300056: pPlane1
+    4300058: pPlane2
+    4300060: pPlane3
+    4300062: pPlane4
+    4300064: pPlane5
+    4300066: pPlane6
+    4300068: pPlane7
+    4300070: pPlane8
+    4300072: pPlane9
+    4300074: pPlane10
+    4300076: pPlane11
+    4300078: pPlane1
+    4300080: pPlane2
+    4300082: pPlane3
+    4300084: pPlane4
+    4300086: pPlane5
+    4300088: pPlane6
+    4300090: pPlane7
+    4300092: pPlane8
+    4300094: pPlane9
+    4300096: pPlane10
+    4300098: pPlane11
+    4300100: pPlane1
+    4300102: pPlane2
+    4300104: pPlane3
+    4300106: pPlane4
+    4300108: pPlane5
+    4300110: pPlane6
+    4300112: pPlane7
+    4300114: pPlane8
+    4300116: pPlane9
+    4300118: pPlane10
+    4300120: pPlane11
+    4300122: pPlane1
+    4300124: pPlane2
+    4300126: pPlane3
+    4300128: pPlane4
+    4300130: pPlane5
+    4300132: pPlane6
+    4300134: pPlane7
+    4300136: pPlane8
+    4300138: pPlane9
+    4300140: pPlane10
+    4300142: pPlane11
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

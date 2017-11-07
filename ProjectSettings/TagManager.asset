@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Background
+  - Barbarus
   layers:
   - Default
   - TransparentFX
@@ -39,9 +39,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: bg
-    uniqueID: 4282055107
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

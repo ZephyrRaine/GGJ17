@@ -4,20 +4,22 @@ using System.Collections;
 public class EnemyBarbarus : MonoBehaviour {
 
 	private GameObject player;
-	private Rigidbody2D rigidbody2D;
+	private Rigidbody2D myRigidbody2D;
 	public float forceAmount;
 	private bool barbarusRange;
 
 	void Start() {
 		player = GameObject.FindWithTag("Player");
-		rigidbody2D = player.GetComponent<Rigidbody2D>();
+		myRigidbody2D = player.GetComponent<Rigidbody2D>();
 		barbarusRange = true;
 	}
 
 	void FixedUpdate() {
 		if(barbarusRange) {
-			rigidbody2D.position += Vector2.left * forceAmount / 60f;
+			myRigidbody2D.position += Vector2.left * forceAmount / 60f;
 		}
+
+        
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

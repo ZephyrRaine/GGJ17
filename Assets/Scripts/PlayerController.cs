@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public static class Vector2Extension {
@@ -17,7 +18,8 @@ public static class Vector2Extension {
 
 public class PlayerController : MonoBehaviour
 {
-	private Rigidbody2D rigidbody2D;
+	private Rigidbody2D myRigidbody2D;
+    private Animator anim;
 	private Vector2 lastKnown;
 	private int flapNumb, frameCooldown;
 	private float xprev = 0f;
@@ -28,11 +30,12 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
 	{
-		rigidbody2D = GetComponent<Rigidbody2D>();
+		myRigidbody2D = GetComponent<Rigidbody2D>();
 		flapNumb = 0;
 		dashCooldown *= 60f;
 		frameCooldown = 0;
-		rigidbody2D.inertia = inertia;
+		myRigidbody2D.inertia = inertia;
+        anim = GetComponentInChildren<Animator>();
 	}
 
     void FixedUpdate()
@@ -42,32 +45,39 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0, 0, -rotation);
 
 		if(transform.position.y <= 0) {
-			flapNumb = 0;
-			rigidbody2D.gravityScale = gravityWater;
+			if(transform.position.x <= GameObject.FindWithTag("Barbarus").transform.position.x + 0.2f) {
+                     SceneManager.LoadScene(2);
+
+            }
+            flapNumb = 0;
+			myRigidbody2D.gravityScale = gravityWater;
 			if(Input.GetButtonDown("Jump") && frameCooldown == 0) {
+                anim.SetTrigger("Dash");
 				Vector2 direction = lastKnown - (Vector2)(transform.position);
 				direction.Normalize();
-				rigidbody2D.AddForce((Vector2)transform.up * dashSpeed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+				myRigidbody2D.AddForce((Vector2)transform.up * dashSpeed * Time.fixedDeltaTime, ForceMode2D.Impulse);
 				frameCooldown++;
 			} else {
 				lastKnown = (Vector2)transform.position;
-				rigidbody2D.AddRelativeForce(Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+				myRigidbody2D.AddRelativeForce(Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime, ForceMode2D.Impulse);
 			}
 			if(frameCooldown > dashCooldown)
 				frameCooldown = 0;
 			else if(frameCooldown > 0)
 				frameCooldown++;
 		} else {
-			rigidbody2D.gravityScale = gravityAir;
-			if(Input.GetButtonDown("Fire1") && flapNumb < flapCount) {
+			myRigidbody2D.gravityScale = gravityAir;
+			if(Input.GetButtonDown("Jump") && flapNumb < flapCount) {
 				flapNumb++;
+                anim.SetTrigger("Flap");
 				Vector2 flap = Vector2.up * 250f;
-				rigidbody2D.AddForce(flap * Time.fixedDeltaTime, ForceMode2D.Impulse);
+				myRigidbody2D.AddForce(flap * Time.fixedDeltaTime, ForceMode2D.Impulse);
 			} else if(xprev - transform.position.y > 0) {
-				rigidbody2D.AddForce(Vector2.down * diveSpeed * Time.fixedDeltaTime, ForceMode2D.Impulse);
+				myRigidbody2D.AddForce(Vector2.down * diveSpeed * (xprev - transform.position.y) * Time.fixedDeltaTime, ForceMode2D.Impulse);
 			}
 			xprev = transform.position.y;
 		}
+        anim.SetFloat("Yposition", transform.position.y);
 		Camera camera = Camera.main;
     }
 }

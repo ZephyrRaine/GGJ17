@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     PlayerController player;
-    Camera camera;
+    Camera myCamera;
     Bounds cameraBounds;
     SpriteRenderer background;
     GameObject movingObjectsContainer;
@@ -40,11 +40,11 @@ public class GameManager : MonoBehaviour
             player = new GameObject("Player", typeof(PlayerController)).GetComponent<PlayerController>();
         }
 
-        camera = Camera.main;
-        if (camera == null)
+		myCamera = Camera.main;
+		if (myCamera == null)
         {
             Debug.Break();
-            Debug.Log("help");
+            Debug.Log("Missing main camera");
         }
 
         movingObjectsContainer = GameObject.Find("objectContainer");
@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         airSource.Play();
 
         sm = gameObject.GetComponent<SoundManager>();
-        
 
         foreach (GameSequence gs in sequences)
         {
@@ -126,12 +125,12 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case STATECAMERA.SWITCHING:
-                if(camera.transform.position.y != desiredCameraY)
+				if(myCamera.transform.position.y != desiredCameraY)
                 {
                     transitionCamera -= Time.deltaTime;
                     float ratioTimer = 1.0f - transitionCamera / transitionTimer;
 
-                    if(desiredCameraY < camera.transform.position.y)
+					if(desiredCameraY < myCamera.transform.position.y)
                     {
                         airSource.volume = 1-ratioTimer;
                         waterSource.volume = ratioTimer;
@@ -141,8 +140,9 @@ public class GameManager : MonoBehaviour
                         airSource.volume = ratioTimer;
                         waterSource.volume = 1-ratioTimer;
                     }
-                    Vector2 v = Vector2.Lerp(new Vector2(camera.transform.position.x, -desiredCameraY), new Vector2(camera.transform.position.x, desiredCameraY), quintInOut(ratioTimer)); // Code du GD, ne pas pleurer svp
-                    camera.transform.position = new Vector3(v.x,v.y,-10); // Code du GD, ne pas pleurer svp
+					Vector3 desiredCameraPos = myCamera.transform.position;
+					desiredCameraPos.y = desiredCameraY;
+					myCamera.transform.position = Vector3.Lerp(myCamera.transform.position, desiredCameraPos, quintInOut(ratioTimer));
                 }
                 else
                 {
@@ -159,11 +159,7 @@ public class GameManager : MonoBehaviour
                     transitionCamera = transitionTimer;
                 }
                 break;
-            default:
-                break;
         }
-		
-        //camera.transform.position = new Vector2(player.transform.position.x, camera.transform.position.y);
     }
 
     // Update is called once per frame

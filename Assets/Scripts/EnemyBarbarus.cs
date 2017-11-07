@@ -18,8 +18,6 @@ public class EnemyBarbarus : MonoBehaviour {
 		if(barbarusRange) {
 			myRigidbody2D.position += Vector2.left * forceAmount / 60f;
 		}
-
-        
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

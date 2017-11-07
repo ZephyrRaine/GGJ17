@@ -40,6 +40,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+		if(transform.position.x <= GameObject.FindWithTag("Barbarus").GetComponent<Rigidbody2D>().transform.position.x + 0.2f) {
+			SceneManager.LoadScene(0);
+		}
+
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         rotation *= Time.fixedDeltaTime;
         transform.Rotate(0, 0, -rotation);
@@ -47,7 +51,6 @@ public class PlayerController : MonoBehaviour
 		if(transform.position.y <= 0) {
 			if(transform.position.x <= GameObject.FindWithTag("Barbarus").transform.position.x + 0.2f) {
                      SceneManager.LoadScene(2);
-
             }
             flapNumb = 0;
 			myRigidbody2D.gravityScale = gravityWater;
